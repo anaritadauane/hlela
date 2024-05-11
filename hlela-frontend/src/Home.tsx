@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
 import { useLocation } from "react-router-dom";
+import Hero from "./components/Hero";
 
 const Home = () => {
   const location = useLocation();
@@ -18,7 +19,8 @@ const Home = () => {
   return (
     <div>
       <Header />
-      <p>Welcome, {user.firstName}!</p>
+      <p className={"px-6"}>Welcome!</p>
+      <Hero />
       <Footer />
     </div>
   );
