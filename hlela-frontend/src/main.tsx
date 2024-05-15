@@ -9,6 +9,7 @@ import ErrorPage from "./error-page.tsx";
 import LoginPage from "./Login.tsx";
 import Home from "./Home.tsx";
 import UsersPage from "./UserPage.tsx";
+import Dashboard from "./components/admin/Dashboard.tsx";
 
 const client = new QueryClient();
 
@@ -23,6 +24,11 @@ const router = createBrowserRouter([
   {
     path: "/users",
     element: <UsersPage />,
+    errorElement: <ErrorPage />,
+  },
+  {
+    path: "/admin",
+    element: <Dashboard />,
     errorElement: <ErrorPage />,
   },
 ]);

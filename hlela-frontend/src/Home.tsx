@@ -1,21 +1,25 @@
 import { useEffect } from "react";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import Hero from "./components/Hero";
 
 const Home = () => {
   const location = useLocation();
+  const navigate = useNavigate();
   const data = location.state;
-  const user = data.data.user;
+  const payload = data.data.payload;
+  const access_token = data.data.access_token;
 
-  // console.log("acess2:", data.data.user);
-  // console.log(access_token);
   useEffect(() => {
-    if (user) {
-      console.log("User:", user);
+    if (payload) {
+      console.log("User:", payload);
+      console.log("Access Token", access_token);
+      if (payload.isAdmin) {
+        navigate("/admin", { state: access_token });
+      }
     }
-  }, [user]);
+  }, [navigate, payload, access_token]);
   return (
     <div>
       <Header />
