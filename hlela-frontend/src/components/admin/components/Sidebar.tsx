@@ -1,5 +1,6 @@
 import { useState } from "react";
 import UsersPage from "../../../UserPage";
+import CategoriesPage from "../../../CategoriesPage";
 const UsersContent = () => (
   <div>
     <div className='flex justify-between'>
@@ -19,7 +20,7 @@ const CategoriesContent = () => (
         Add Categories
       </button>
     </div>
-    {/* <CategoriesPage /> */}
+    <CategoriesPage />
   </div>
 );
 const Sidebar = () => {

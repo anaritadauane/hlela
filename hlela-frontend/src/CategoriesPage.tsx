@@ -1,8 +1,8 @@
 import { useQuery } from "react-query";
-import { usersApi } from "./api/api";
+import { categoriesApi } from "./api/api";
 
-const UsersPage = () => {
-  const { data, isLoading } = useQuery("users", usersApi);
+const CategoriesPage = () => {
+  const { data, isLoading } = useQuery("categories", categoriesApi);
 
   if (isLoading) {
     return (
@@ -18,32 +18,21 @@ const UsersPage = () => {
         <thead>
           <tr>
             <th></th>
-            <th>First Name</th>
-            <th>Surname</th>
-            <th>Username</th>
-            <th>Email</th>
-            <th>Admin</th>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Subcategories</th>
             <th>Actions</th>
           </tr>
         </thead>
         <tbody>
           {/* Map through data to generate table rows */}
           {data.map(
-            (user: {
-              id: number;
-              firstName: string;
-              surname: string;
-              username: string;
-              email: string;
-              isAdmin: boolean;
-            }) => (
-              <tr key={user.id}>
-                <th>{user.id}</th>
-                <td>{user.firstName}</td>
-                <td>{user.surname}</td>
-                <td>{user.username}</td>
-                <td>{user.email}</td>
-                <td>{user.isAdmin ? "Yes" : "No"}</td>
+            (category: { id: number; name: string; description: string }) => (
+              <tr key={category.id}>
+                <th>{category.id}</th>
+                <td>{category.name}</td>
+                <td>{category.description}</td>
+                <td></td>
                 <td className='flex justify-between'>
                   <button className='btn btn-ghost btn-xs'>Edit</button>
                   <button className='btn btn-ghost btn-xs'>Delete</button>
@@ -57,4 +46,4 @@ const UsersPage = () => {
   );
 };
 
-export default UsersPage;
+export default CategoriesPage;

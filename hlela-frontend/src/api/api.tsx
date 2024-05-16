@@ -11,3 +11,7 @@ export const loginApi = (credentials: { email: string; password: string }) => {
 export const usersApi = () => {
   return api.get("/users").then((response) => response.data);
 };
+
+export const categoriesApi = () => {
+  return api.get("/categories").then((response) => response.data);
+};
