@@ -51,7 +51,7 @@ const Sidebar = () => {
             <ul className='menu p-4 w-80 min-h-full bg-base-200 text-base-content'>
               {/* Map through the links array to generate dynamic links */}
               {links.map((link, index) => (
-                <li key={index}>
+                <li className='p-1' key={index}>
                   {/* On click, update the active content */}
                   <button onClick={() => setActiveContent(link)}>
                     {link.text}

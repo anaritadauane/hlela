@@ -3,6 +3,7 @@ import { categoriesApi } from "./api/api";
 
 const CategoriesPage = () => {
   const { data, isLoading } = useQuery("categories", categoriesApi);
+  console.log(data);
 
   if (isLoading) {
     return (
@@ -27,12 +28,24 @@ const CategoriesPage = () => {
         <tbody>
           {/* Map through data to generate table rows */}
           {data.map(
-            (category: { id: number; name: string; description: string }) => (
+            (category: {
+              id: number;
+              name: string;
+              description: string;
+              subcategories: {
+                name: string;
+              }[];
+            }) => (
               <tr key={category.id}>
                 <th>{category.id}</th>
                 <td>{category.name}</td>
                 <td>{category.description}</td>
-                <td></td>
+                {/* <td>
+                  {category.subcategories.map(
+                    (subcategory: { name: string }) => subcategory.name
+                  )}
+                  <br />
+                </td> */}
                 <td className='flex justify-between'>
                   <button className='btn btn-ghost btn-xs'>Edit</button>
                   <button className='btn btn-ghost btn-xs'>Delete</button>
