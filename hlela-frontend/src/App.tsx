@@ -1,3 +1,4 @@
+import Section from "./Section";
 import { CategoriesList } from "./components/CategoriesList";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
@@ -9,6 +10,7 @@ function App() {
       <Header />
       <Hero />
       <CategoriesList />
+      <Section />
       <Footer />
     </div>
   );

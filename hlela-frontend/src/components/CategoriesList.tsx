@@ -88,12 +88,14 @@ export const CategoriesList = () => {
       <div className='grid grid-rows-3 grid-flow-col gap-4 pb-8'>
         {data.map(
           (category: { id: number; name: string; description: string }) => (
-            <div
+            <button
               key={category.id}
-              className={`flex items-center space-x-3 bg-${getRandomColor()} rounded-full`}
+              className={`flex items-center space-x-3 bg-primary rounded-full`}
             >
-              <p className='p-4 text-sm'>{category.name}</p>
-            </div>
+              <p className='p-4 text-sm text-white font-bold'>
+                {category.name}
+              </p>
+            </button>
           )
         )}
       </div>
