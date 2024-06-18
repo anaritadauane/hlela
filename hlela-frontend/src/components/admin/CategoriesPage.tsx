@@ -1,5 +1,5 @@
 import { useQuery } from "react-query";
-import { categoriesApi } from "./api/api";
+import { categoriesApi } from "../../api/api";
 
 const CategoriesPage = () => {
   const { data, isLoading } = useQuery("categories", categoriesApi);
@@ -18,10 +18,9 @@ const CategoriesPage = () => {
         {/* head */}
         <thead>
           <tr>
-            <th></th>
+            <th>ID</th>
             <th>Name</th>
             <th>Description</th>
-            <th>Subcategories</th>
             <th>Actions</th>
           </tr>
         </thead>

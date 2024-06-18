@@ -29,6 +29,9 @@ const Header = () => {
               <Link to='/categories'>Categories</Link>
             </li>
             <li>
+              <Link to='/blog'>Blog</Link>
+            </li>
+            <li>
               <Link to='/login'>Login</Link>
             </li>
           </ul>
@@ -60,6 +63,14 @@ const Header = () => {
               to='/categories'
             >
               Categories
+            </Link>
+          </li>
+          <li>
+            <Link
+              className='text-black font-thin hover:bg-transparent hover:text-black hover:font-bold'
+              to='/blog'
+            >
+              Blog
             </Link>
           </li>
           <li>

@@ -10,6 +10,8 @@ import LoginPage from "./Login.tsx";
 import Home from "./Home.tsx";
 import UsersPage from "./UserPage.tsx";
 import Dashboard from "./components/admin/Dashboard.tsx";
+import BlogPage from "./Blog.tsx";
+import Categories from "./Categories.tsx";
 
 const client = new QueryClient();
 
@@ -24,6 +26,16 @@ const router = createBrowserRouter([
   {
     path: "/users",
     element: <UsersPage />,
+    errorElement: <ErrorPage />,
+  },
+  {
+    path: "/blog",
+    element: <BlogPage />,
+    errorElement: <ErrorPage />,
+  },
+  {
+    path: "/categories",
+    element: <Categories />,
     errorElement: <ErrorPage />,
   },
   {
