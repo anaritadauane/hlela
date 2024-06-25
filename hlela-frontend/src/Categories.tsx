@@ -5,6 +5,7 @@ import Footer from "./components/Footer";
 
 const Categories = () => {
   const { data, isLoading } = useQuery("categories", categoriesApi);
+  console.log(data);
 
   if (isLoading) {
     return <div>Loading...</div>;
@@ -30,7 +31,23 @@ const Categories = () => {
           </h2>
           <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6'>
             {data.map(
-              (category: { id: number; name: string; description: string }) => (
+              (category: {
+                id: number;
+                name: string;
+                description: string;
+                businesses: {
+                  id: number;
+                  name: string;
+                  description: string;
+                  website: string;
+                  phoneNumber: string;
+                  email: string;
+                  address: string;
+                  averageRating: string;
+                  numberOfRatings: string;
+                  categoryId: number;
+                }[];
+              }) => (
                 <div
                   key={category.id}
                   className={`p-6 rounded-lg shadow-lg bg-violet-100`}
@@ -39,11 +56,11 @@ const Categories = () => {
                   <h3 className='text-xl font-thin mb-4'>{category.name}</h3>
                   <ul className='text-left'>
                     {/* Code to display the businesses */}
-                    {/* {category.items.map((item) => (
-                  <li key={item} className="mb-2">
-                    {item}
-                  </li>
-                ))} */}
+                    {category.businesses.map((business) => (
+                      <li key={business.id} className='mb-2'>
+                        {business.name}
+                      </li>
+                    ))}
                   </ul>
                 </div>
               )

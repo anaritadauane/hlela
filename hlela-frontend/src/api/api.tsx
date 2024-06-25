@@ -13,5 +13,7 @@ export const usersApi = () => {
 };
 
 export const categoriesApi = () => {
-  return api.get("/categories").then((response) => response.data);
+  return api
+    .get("/categories?include=businesses")
+    .then((response) => response.data);
 };

@@ -21,6 +21,7 @@ const CategoriesPage = () => {
             <th>ID</th>
             <th>Name</th>
             <th>Description</th>
+            <th>Businesses</th>
             <th>Actions</th>
           </tr>
         </thead>
@@ -31,7 +32,7 @@ const CategoriesPage = () => {
               id: number;
               name: string;
               description: string;
-              subcategories: {
+              businesses: {
                 name: string;
               }[];
             }) => (
@@ -39,12 +40,12 @@ const CategoriesPage = () => {
                 <th>{category.id}</th>
                 <td>{category.name}</td>
                 <td>{category.description}</td>
-                {/* <td>
-                  {category.subcategories.map(
-                    (subcategory: { name: string }) => subcategory.name
+                <td>
+                  {category.businesses.map(
+                    (business: { name: string }) => business.name
                   )}
                   <br />
-                </td> */}
+                </td>
                 <td className='flex justify-between'>
                   <button className='btn btn-ghost btn-xs'>Edit</button>
                   <button className='btn btn-ghost btn-xs'>Delete</button>
